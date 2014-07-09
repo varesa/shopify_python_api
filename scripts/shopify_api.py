@@ -107,14 +107,14 @@ class Tasks(object):
             raise ConfigFileError("There is already a config file at " + filename)
         else:
             config = dict(protocol='https')
-            domain = raw_input("Domain? (leave blank for %s.myshopify.com) " % (connection))
+            domain = input("Domain? (leave blank for %s.myshopify.com) " % (connection))
             if not domain.strip():
                 domain = "%s.myshopify.com" % (connection)
             config['domain'] = domain
             print("")
             print("open https://%s/admin/api in your browser to get API credentials" % (domain))
-            config['api_key'] = raw_input("API key? ")
-            config['password'] = raw_input("Password? ")
+            config['api_key'] = input("API key? ")
+            config['password'] = input("Password? ")
             if not os.path.isdir(cls._shop_config_dir):
                 os.makedirs(cls._shop_config_dir)
             with open(filename, 'w') as f:
