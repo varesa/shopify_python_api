@@ -119,7 +119,7 @@ class Tasks(object):
                 os.makedirs(cls._shop_config_dir)
             with open(filename, 'w') as f:
                 f.write(yaml.dump(config, default_flow_style=False, explicit_start="---"))
-        if len(cls._available_connections()) == 1:
+        if len(list(cls._available_connections())) == 1:
             cls.default(connection)
 
     @classmethod
